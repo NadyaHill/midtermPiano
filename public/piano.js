@@ -1,7 +1,7 @@
 angular.module("pianoApp", [])
 
 angular.module("pianoApp")
-    .controller("pianoController", ["$scope", function($scope) {
+    .controller("pianoController", ["$scope", "$http", function($scope, $http) {
 
 
 
