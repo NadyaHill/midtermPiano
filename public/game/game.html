@@ -1,27 +1,24 @@
+<!-- THIS PORTION OF THE OVERVIEW IS CONNECTED TO PIANO.CSS, NOT ITS OWN CSS -->
+
 <!DOCTYPE html>
 <html lang="en" ng-app="pianoApp">
   <head>
     <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Stalemate' rel='stylesheet' type='text/css'>
-    <script src="wad.js"></script>
-    <title>Virtual Piano</title>
+    <script src="/wad.js"></script>
+    <title>GAME</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-<!--     <script src="piano.js"/> -->
-<!-- let's try to only have one public js folder -->
-    <script src="../reference/reference.js"></script>
-<!-- and one css folder -->
-    <link rel="stylesheet" href="piano.css" />
+    <script src="/piano.js"></script>
+    <link rel="stylesheet" href="/piano.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
-    <script src="underscoreFactory.js"> </script>
+    <script src="/underscoreFactory.js"> </script>
   </head>
 
 
   <body ng-controller="pianoController"  ng-keydown="keyboardPlay($event, true)" ng-keyup="keyboardPlay($event, false)">
 
     <div class="title">
-      Nadya's Tiny Virtual Piano
-      <div class="instructions"> &#9733; use your mouse or keyboard to play &#9733;
-      </div>
+      &#9733;  GAME ON!  &#9733;
     </div>
 
 
@@ -50,9 +47,18 @@
     <div class="otherEmptyBox"></div>
     <div class="emptyWhiteBox"></div>
 
+    <div class="instructions"> 
+    	<p>Welcome to the GAME page of Nadya's Tiny Virtual Piano!
+    	</p>
 
+    	<p>When you click the "game on" button below, you'll see a staff with a melody on it!  Do your best to sight-read the melody, and we'll tell you what you got right and what you can improve on!  Incorrect rhythm will NOT count against you. However, extra notes WILL count against you.
+    	</p>
 
-    <div class="emptyBox"></div>
+    	<p>We'll leave the keyboard here if you want to play around with it for a spell to remind yourself where your fingers go!
+    	</p>
+
+    	<p><a href="/gameOne"><button class="gameOn">game on >></button><a></p>
+    </div>
 
     <div id = "keyboard">
       <div class="keys">
@@ -76,4 +82,8 @@
     <div class = "bottomBox"></div>
 
   </body>
+</html>
+<body>
+
+</body>
 </html>

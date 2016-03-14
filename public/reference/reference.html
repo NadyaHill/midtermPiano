@@ -1,27 +1,24 @@
+<!-- THIS PORTION OF THE OVERVIEW IS CONNECTED TO PIANO.CSS, NOT ITS OWN CSS -->
+
 <!DOCTYPE html>
 <html lang="en" ng-app="pianoApp">
   <head>
     <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Stalemate' rel='stylesheet' type='text/css'>
-    <script src="wad.js"></script>
-    <title>Virtual Piano</title>
+    <script src="/wad.js"></script>
+    <title>REFERENCE</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-<!--     <script src="piano.js"/> -->
-<!-- let's try to only have one public js folder -->
-    <script src="../reference/reference.js"></script>
-<!-- and one css folder -->
-    <link rel="stylesheet" href="piano.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
-    <script src="underscoreFactory.js"> </script>
+    <script src="./reference.js"></script>
+<!--     <script src="/piano.js"/>
+ -->    <link rel="stylesheet" href="/piano.css"/>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"/>
+ --><!--     <script src="underscoreFactory.js"/> -->
   </head>
-
 
   <body ng-controller="pianoController"  ng-keydown="keyboardPlay($event, true)" ng-keyup="keyboardPlay($event, false)">
 
     <div class="title">
-      Nadya's Tiny Virtual Piano
-      <div class="instructions"> &#9733; use your mouse or keyboard to play &#9733;
-      </div>
+      &#9733;  For Reference!  &#9733;
     </div>
 
 
@@ -50,13 +47,40 @@
     <div class="otherEmptyBox"></div>
     <div class="emptyWhiteBox"></div>
 
+    <div class="instructions"> 
+    	<p>Use this page to reference which note goes where on the staff!
+    	</p>
+    </div>
+
+    <div class="otherEmptyBox"></div>
 
 
-    <div class="emptyBox"></div>
+    <div style="position:relative; display:inline-block">
+      <img class="scale" src="http://i.imgur.com/V6x6kCA.jpg">
+      &nbsp;
+      <!-- ^^this makes a nice little space -->
+        <span id="C4NP" class="notePosition">&#8679;</span>
+        <span id="cSharpNP" class="notePosition">&#8679;</span>
+        <span id="D4NP" class="notePosition">&#8679;</span>
+        <span id="dSharpNP" class="notePosition">&#8679;</span>
+        <span id="E4NP" class="notePosition">&#8679;</span>
+        <span id="F4NP" class="notePosition">&#8679;</span>
+        <span id="fSharpNP" class="notePosition">&#8679;</span>
+        <span id="G4NP" class="notePosition">&#8679;</span>
+        <span id="gSharpNP" class="notePosition">&#8679;</span>
+        <span id="A4NP" class="notePosition">&#8679;</span>
+        <span id="aSharpNP" class="notePosition">&#8679;</span>
+        <span id="B4NP" class="notePosition">&#8679;</span>
+        <span id="C5NP" class="notePosition">&#8679;</span>
+    </div>
+
+
+    <div class="spaceBox"></div>
+
 
     <div id = "keyboard">
       <div class="keys">
-        <div id="C4" class="whiteKey" ng-click="play('C4')"> C4 </div>
+        <div id="C4" class="whiteKey" ng-click="play('C4')" ng-Touch="play('C4')"> C4 </div>
         <div id="cSharp" class="blackKey" ng-click="play('C#4')"> C# </div>
         <div id="D4" class="whiteKey" ng-click="play('D4')"> D </div>
         <div id="dSharp" class="blackKey" ng-click="play('D#4')"> D# </div>
@@ -72,8 +96,14 @@
       </div>
     </div>
 
-
+    <div class = "spaceBox"></div>
+    <div class = "instructions">click the button below to move on to the GAME section</div>
+    <a href="../game/game.html"><button class="next">next >></button><a>
     <div class = "bottomBox"></div>
 
   </body>
+</html>
+<body>
+
+</body>
 </html>

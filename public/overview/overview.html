@@ -1,27 +1,26 @@
+<!-- THIS PORTION OF THE OVERVIEW IS CONNECTED TO PIANO.CSS, NOT ITS OWN CSS -->
+
 <!DOCTYPE html>
 <html lang="en" ng-app="pianoApp">
   <head>
     <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Stalemate' rel='stylesheet' type='text/css'>
-    <script src="wad.js"></script>
-    <title>Virtual Piano</title>
+    <script src="/wad.js"></script>
+    <title>OVERVIEW</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-<!--     <script src="piano.js"/> -->
-<!-- let's try to only have one public js folder -->
+<!--     <script src="/piano.js" /> -->
     <script src="../reference/reference.js"></script>
-<!-- and one css folder -->
-    <link rel="stylesheet" href="piano.css" />
+    <link rel="stylesheet" href="/piano.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
-    <script src="underscoreFactory.js"> </script>
+<!--     <script src="underscoreFactory.js" /> -->
+    <title>overview</title>
   </head>
 
 
   <body ng-controller="pianoController"  ng-keydown="keyboardPlay($event, true)" ng-keyup="keyboardPlay($event, false)">
 
     <div class="title">
-      Nadya's Tiny Virtual Piano
-      <div class="instructions"> &#9733; use your mouse or keyboard to play &#9733;
-      </div>
+      &#9733;  Overview!  &#9733;
     </div>
 
 
@@ -50,9 +49,11 @@
     <div class="otherEmptyBox"></div>
     <div class="emptyWhiteBox"></div>
 
-
-
-    <div class="emptyBox"></div>
+    <div class="instructions"> 
+    	<p>Nadya's Tiny Virtual Piano is an application meant to help users learn how to sight-read!  In this overview, we'll walk you through the functionality of the keyboard as well as how to sight-read in this octave!
+    	</p>
+    	<p><a href="/c4"><button class="next">next >></button><a></p>
+    </div>
 
     <div id = "keyboard">
       <div class="keys">
@@ -75,5 +76,13 @@
 
     <div class = "bottomBox"></div>
 
+    <div class="instructions">all music notation rendered through <a target="_blank"href = "http://lilypond.org/">Lily Pond</a></div>
+
+    <div class = "bottomBox"></div>
+
   </body>
+</html>
+<body>
+
+</body>
 </html>

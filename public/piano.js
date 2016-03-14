@@ -1,20 +1,99 @@
-angular.module("pianoApp", [])
+angular.module("pianoApp", ["underscore"])
 
 angular.module("pianoApp")
-    .controller("pianoController", ["$scope", "$http", function($scope, $http) {
+    .controller("pianoController", ["$scope", "$http", "_", function($scope, $http, _ ) {
 
-
+        $scope.playedNotes = []
+        // _.each([1, 2, 3], alert)
+        $http.get("http://localhost:4000/melody") 
+            .then(function (data) {
+                console.log(data)
+                $scope.melodies = data.data
+            })
 
         var piano = new Wad(Wad.presets.piano)
         $scope.play = function(note){
             piano.play({pitch:note})
+            // to capture what the client plays
+            $scope.playedNotes.push(note)
+            console.log("played notes", $scope.playedNotes)
         }
+
+
+// this creates the answer key and processes the user input
+        var countNotes= function (song) {
+            var countObject = {}
+            song.forEach( function (note) {
+                // 
+                if (note in countObject) {
+                    countObject[note] +=1
+                }
+                // 
+                else {
+                    countObject[note] = 1
+                }
+            })
+            return countObject
+        }
+        // countObject = { 'C4' : 3, 'D4': 5, 'E4': 2 }
+
+        var checkAnswers = function (user, answerKey) {
+            var numberWrong = 0
+            var answerAndKey = _.extend(user, answerKey)
+            var allKeys = _.keys(answerAndKey)
+            allKeys.forEach(function (note) {
+                if (user[note] && answerKey[note]){
+                    var difference = (answerKey[note] - user[note])   
+                } else {
+                    var difference = user[note] || answerKey [note]
+                }
+                console.log(difference)
+                numberWrong += Math.abs(difference)
+            })
+            return numberWrong
+        }
+
+
+        $scope.showMyScore = function (userInput, answerKey) {
+            var user = countNotes(userInput)
+            var correct = countNotes(answerKey)
+            var wrong = checkAnswers(user, correct)
+            var percentageCorrect = 100*(1-(wrong/answerKey.length))
+            $scope.showMyScore = percentageCorrect
+            // console.log("you got this ", percentageCorrect, "% correct!")
+        }
+
+
+        $scope.hideThis=true
+
+        $scope.pressMe = function () {
+            $scope.hideThis = false
+        }
+
+
+        $scope.perpetualMotion = ["C4","D4","E4","E4","D4","E4","F4","F4","E4","F4","G4","E4","F4","D4","G4","G4"]
+
+        $scope.odeToJoy = ["E4", "E4", "F4", "G4", "G4", "F4", "E4", "D4", "C4", "C4", "D4", "E4", "E4", "D4", "D4", "E4", "E4", "F4", "G4", "G4", "F4", "E4", "D4", "C4", "C4", "D4", "E4", "D4", "C4", "C4"]
+
+        $scope.twinkleTwinkle = ["D4", "D4", "A4", "A4", "B4", "B4", "A4", "G4", "G4", "F#4", "F#4", "E4", "E4", "D4"]
+
+        $scope.furElise = ["A4", "G#4", "A4", "G#4", "A4", "E4", "G4", "F4", "D4"]
+
+        $scope.allegro = ["C5", "C5", "G4", "G4", "A4", "B4", "C5", "A4", "G4", "G4", "F4", "F4", "E4", "E4", "D4", "C4", "D4", "E4", "C4"]
+
+        // NOW $SCOPE ALL THE OTHER PIECES TO BE HARDCODED ON THIS SITE-- THERE WILL EVENTUALLY BE A DATABASE WHERE OTHER PEOPLE CAN SUBMIT SONGS TO THE GAME
+
+
+
+
+
+
+
+
 
 
 
 // connects the keyboard keys to notes on the piano
-
-
 
         $scope.keyboardPlay = function(event, down){
         var name;
@@ -95,9 +174,12 @@ angular.module("pianoApp")
                     if(down) {
                         $(name).addClass("colorChange")
                         $scope.play(pitch)
+                        $(name + "NP.notePosition").show();
+
                     }
                     else {
                         $(name).removeClass("colorChange")
+                        $(name + "NP.notePosition").fadeOut(600);
                     }
         }
 

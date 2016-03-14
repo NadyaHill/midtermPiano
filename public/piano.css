@@ -1,8 +1,8 @@
 * {
 	background-color: burlywood;
 	box-sizing: border-box;
+	text-align: center;
 }
-
 
 .title {
 	font-family: "Sue Ellen Francisco";
@@ -12,9 +12,16 @@
 
 
 .instructions {
+	font-family: "Sue Ellen Francisco";
 	font-size: 25px;
+	text-align: center;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
+}
+
+.instructions a {
+	text-decoration: none;
+	color:black;
 }
 
 .emptyWhiteBox {
@@ -22,10 +29,82 @@
 	background-color: white;
 }
 
+
+.otherEmptyBox {
+	height: 10px;
+	background-color: burlywood;
+}
+
+
+
+.navigator {
+	text-align: center;
+}
+
+.navigator a {
+	text-decoration: none;
+}
+
+
+.button{
+	display: inline-block;
+	font-family: "Sue Ellen Francisco";
+	font-size: 20px;
+	text-align: center;
+	color: black;
+	margin-right: 25px;
+	margin-left: 25px;
+	padding: 5px;
+	width: 150px;
+	border-top-color:beige;
+	border-left-color: beige;
+	border-bottom-color: #151515;
+	border-right-color: #151515;
+}
+
+
+
+.navigator :active{
+	transform: translateY(1px);
+}
+
+
+.scoreCard{
+background-color: red;
+width: 50%;
+height: 100px;
+margin:auto;
+}
+
+.closeButton{
+background-color: blue;
+}
+
+
+
 .emptyBox {
 	padding-top: 20px;
 	height: 100px;
 }
+
+
+.noteOnStaff {
+	height: 150px;
+	width: 282px;
+}
+
+.scale {
+	display: block;
+	height: 91.3px;
+	width: 636px;
+}
+
+.notePosition {
+	position:absolute;
+	bottom: -5px;
+	display: none;
+}
+
 
 
 .keys {
@@ -74,3 +153,155 @@
 	background-color: peru;
 }
 
+
+.spaceBox {
+	height: 50px;
+	background-color: burlywood;
+}
+
+
+.next{
+	display: inline-block;
+	font-family: "Sue Ellen Francisco";
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+	color: black;
+	background-color: ivory;
+	margin: auto;
+	padding: 1px;
+	width: 50px;
+	border-top-color:beige;
+	border-left-color: beige;
+	border-bottom-color: #151515;
+	border-right-color: #151515;
+}
+
+.homepage {
+	font-family: "Sue Ellen Francisco";
+	font-size: 20px;
+	text-align: center;
+	color: black;
+	background-color: ivory;
+	height: 100px;
+	width: 100px;
+	border-color: black;
+	border-radius: 100px;
+}
+
+
+.gameOn{
+	font-family: "Sue Ellen Francisco";
+	font-size: 20px;
+	text-align: center;
+	color: black;
+	background-color: ivory;
+	margin-left: 25px;
+	padding: 1px;
+	width: 100px;
+	border-top-color:beige;
+	border-left-color: beige;
+	border-bottom-color: #151515;
+	border-right-color: #151515;
+}
+
+
+
+
+
+
+.gameNext {
+	display: inline-block;
+	font-family: "Sue Ellen Francisco";
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+	color: black;
+	background-color: ivory;
+	margin: auto;
+	padding: 1px;
+	width: 100px;
+	border-top-color:beige;
+	border-left-color: beige;
+	border-bottom-color: #151515;
+	border-right-color: #151515;
+}
+
+.tryAgain {
+	display: inline-block;
+	font-family: "Sue Ellen Francisco";
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+	color: black;
+	background-color: ivory;
+	margin: auto;
+	margin-right: 20px;
+	padding: 1px;
+	width: 100px;
+	border-top-color:beige;
+	border-left-color: beige;
+	border-bottom-color: #151515;
+	border-right-color: #151515;	
+}
+
+
+.bottomBox {
+	background-color: burlywood;
+	height: 100px;
+}
+
+
+/*this positions the REFERENCE arrows from left to right*/
+/*THIS IS THE ONLY SECTION THAT IS ONLY USED IN THE REFERENCE SECTION*/
+#C4NP.notePosition{
+	left: 16%;
+}
+
+#cSharpNP.notePosition{
+	left: 21.5%;
+}
+
+#D4NP.notePosition{
+	left: 26.5%;
+}
+
+#dSharpNP.notePosition{
+	left: 32%;
+}
+
+#E4NP.notePosition{
+	left: 39%;
+}
+
+#F4NP.notePosition{
+	left: 44%;
+}
+
+#fSharpNP.notePosition{
+	left: 49.5%;
+}
+
+#G4NP.notePosition{
+	left: 54.5%;
+}
+
+#gSharpNP.notePosition{
+	left: 63.5%;
+}
+
+#A4NP.notePosition{
+	left: 68.5%;
+}
+
+#aSharpNP.notePosition{
+	left: 74%;
+}
+
+#B4NP.notePosition{
+	left: 79%;
+}
+
+#C5NP.notePosition{
+	left: 88%;	
+}
