@@ -1,26 +1,65 @@
-angular.module("pianoApp", ["underscore"])
+angular.module("pianoApp", [])
 
 angular.module("pianoApp")
-    .controller("pianoController", ["$scope", "$http", "_", function($scope, $http, _ ) {
+    .controller("pianoController", ["$scope", "$http", '$timeout', function($scope, $http, $timeout) {
+
+// ADD FAST CLICK
+
+
+        $scope.active =  {
+            "#C4":false,
+            "C#4":false,
+            "D4":false,
+            "D#4":false,
+            "E4":false,
+            "F4":false,
+            "F#4":false,
+            "G":false,
+            "G#4":false,
+            "A4":false,
+            "A#4":false,
+            "B4":false,
+            "C5":false
+        }
+
+
 
         $scope.playedNotes = []
-        // _.each([1, 2, 3], alert)
         $http.get("http://localhost:4000/melody") 
             .then(function (data) {
                 console.log(data)
                 $scope.melodies = data.data
             })
 
+
+
         var piano = new Wad(Wad.presets.piano)
+
+
+        // LET'S ADD A SNARE FOR KEYS PRESSED THAT ARE NOT ON THE KEYBOARD!
+
+        // var snare = new Wad(Wad.presets.snare)
+
+        // $scope.snare = function(note){
+        //     snare.play()
+        // }
+        
+
         $scope.play = function(note){
             piano.play({pitch:note})
-            // to capture what the client plays
+
             $scope.playedNotes.push(note)
             console.log("played notes", $scope.playedNotes)
+
+            $scope.active[note] = true
+
+            $timeout(function(){
+                $scope.active[note] = false
+            }, 100)
         }
 
 
-// this creates the answer key and processes the user input
+// this portion is for the GAME-- it creates the answer key and processes the user input
         var countNotes= function (song) {
             var countObject = {}
             song.forEach( function (note) {
@@ -80,6 +119,8 @@ angular.module("pianoApp")
         $scope.furElise = ["A4", "G#4", "A4", "G#4", "A4", "E4", "G4", "F4", "D4"]
 
         $scope.allegro = ["C5", "C5", "G4", "G4", "A4", "B4", "C5", "A4", "G4", "G4", "F4", "F4", "E4", "E4", "D4", "C4", "D4", "E4", "C4"]
+
+
 
         // NOW $SCOPE ALL THE OTHER PIECES TO BE HARDCODED ON THIS SITE-- THERE WILL EVENTUALLY BE A DATABASE WHERE OTHER PEOPLE CAN SUBMIT SONGS TO THE GAME
 
@@ -175,11 +216,13 @@ angular.module("pianoApp")
                         $(name).addClass("colorChange")
                         $scope.play(pitch)
                         $(name + "NP.notePosition").show();
+                        // console.log("hey there");
 
                     }
                     else {
                         $(name).removeClass("colorChange")
                         $(name + "NP.notePosition").fadeOut(600);
+                        // console.log("we're done")
                     }
         }
 
