@@ -70,10 +70,14 @@
 
 
 .scoreCard{
+/*position: absolute;*/
 background-color: red;
-width: 50%;
-height: 100px;
+width: 60%;
+height: 90px;
 margin:auto;
+padding-top: 5px;
+margin-bottom: 20px;
+font-family: "Sue Ellen Francisco"
 }
 
 .closeButton{
@@ -249,6 +253,18 @@ background-color: blue;
 .bottomBox {
 	background-color: burlywood;
 	height: 100px;
+}
+
+.footer {
+	background-color: burlywood;
+	text-align: center;
+	font-family: "Sue Ellen Francisco";
+	font-size: 10px;
+}
+
+.footer a {
+	color: black;
+	text-decoration: none;
 }
 
 
