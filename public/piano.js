@@ -35,16 +35,6 @@ angular.module("pianoApp")
 
         var piano = new Wad(Wad.presets.piano)
 
-
-        // LET'S ADD A SNARE FOR KEYS PRESSED THAT ARE NOT ON THE KEYBOARD!
-
-        // var snare = new Wad(Wad.presets.snare)
-
-        // $scope.snare = function(note){
-        //     snare.play()
-        // }
-        
-
         $scope.play = function(note){
             piano.play({pitch:note})
 
@@ -57,6 +47,20 @@ angular.module("pianoApp")
                 $scope.active[note] = false
             }, 100)
         }
+
+
+        // LET'S ADD A SNARE FOR KEYS PRESSED THAT ARE NOT ON THE KEYBOARD!
+
+        var snare = new Wad(Wad.presets.snare)
+
+        $scope.snare = function(){
+            // how to get it to NOT play a:440
+            snare.play({volume:1 })
+            console.log("CONGRATS you're snaring!")
+        }
+        
+
+
 
 
 // this portion is for the GAME-- it creates the answer key and processes the user input
@@ -138,7 +142,7 @@ angular.module("pianoApp")
 
         $scope.keyboardPlay = function(event, down){
         var name;
-        var pitch;
+        var pitch = null;
             switch (event.keyCode) {
 
                 case 68:
@@ -207,14 +211,16 @@ angular.module("pianoApp")
                     pitch = 'C5';
                     break;
 
-                // default:
-                //     $scope.snare()
-                //     break;
+                default:
+                    if(down) {
+                    $scope.snare()
+                }
+                    break;
 
             }
                     if(down) {
                         $(name).addClass("colorChange")
-                        $scope.play(pitch)
+                        if (pitch != null) {$scope.play(pitch)}
                         $(name + "NP.notePosition").show();
                         // console.log("hey there");
 
@@ -225,6 +231,19 @@ angular.module("pianoApp")
                         // console.log("we're done")
                     }
         }
+
+
+        $scope.noKeyboardPlay = !$scope.keyboardPlay
+        // $scope.noKeyboardPlay = function(event, down){
+        // var name;
+        // var pitch;
+        //     switch (event.keyCode) {
+
+        //         case 68:
+        //             name = "#C4";
+        //             pitch = none;
+        //             break;
+
 
     }])
 
